@@ -40,16 +40,13 @@ export const UserRegistrationSchema: ZodType<UserRegistrationProps> = z
     path: ['confirmEmail'],
   })
 
+
+
+  
 export type UserLoginProps = {
   email: string
   password: string
 }
-
-export type ChangePasswordProps = {
-  password: string
-  confirmPassword: string
-}
-
 export const UserLoginSchema: ZodType<UserLoginProps> = z.object({
   email: z.string().email({ message: 'You did not enter a valid email' }),
   password: z
@@ -59,6 +56,15 @@ export const UserLoginSchema: ZodType<UserLoginProps> = z.object({
       message: 'Your password can not be longer then 64 characters long',
     }),
 })
+
+
+
+
+
+export type ChangePasswordProps = {
+  password: string
+  confirmPassword: string
+}
 
 export const ChangePasswordSchema: ZodType<ChangePasswordProps> = z
   .object({
