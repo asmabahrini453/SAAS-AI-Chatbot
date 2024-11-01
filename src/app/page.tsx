@@ -1,4 +1,5 @@
 //Main landing page
+import { onGetBlogPosts } from "@/actions/landing";
 import NavBar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,8 +8,24 @@ import clsx from "clsx";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import parse from "html-react-parser";
+import { getMonthName } from "@/lib/utils";
 
-export default function Home() {
+export default async function Home() {
+  //blogposts
+  const posts:
+    | {
+        id: string
+        title: string
+        image: string
+        content: string
+        createdAt: Date
+      }[]
+    | undefined = await onGetBlogPosts()
+  console.log(posts)
+
+
+
   return (
    <main>
       <NavBar/>
@@ -96,6 +113,8 @@ export default function Home() {
           Explore our insights on AI, technology, and optimizing your business.
         </p>
       </section>
+
+    
       <section className="md:grid-cols-3 grid-cols-1 grid gap-5 container mt-8">
         {posts &&
           posts.map((post) => (
