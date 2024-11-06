@@ -35,7 +35,7 @@ import {
 import { useToast } from '../use-toast'
 
 
-  
+  //to upload files
   const upload = new UploadClient({
     publicKey: process.env.NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY as string,
   })
@@ -89,20 +89,23 @@ import { useToast } from '../use-toast'
 
   export const useSettings = (id: string) => {
     const {
-      register,
-      handleSubmit,
-      formState: { errors },
-      reset,
+      register,  // Function to register form fields
+      handleSubmit, // Function to handle form submission
+      formState: { errors }, // Object to store form validation errors
+      reset,// Function to reset form fields
     } = useForm<DomainSettingsProps>({
       resolver: zodResolver(DomainSettingsSchema),
     })
     const router = useRouter()
     const { toast } = useToast()
+
     const [loading, setLoading] = useState<boolean>(false)
     const [deleting, setDeleting] = useState<boolean>(false)
   
+     // Function to handle form submission and update settings
     const onUpdateSettings = handleSubmit(async (values) => {
       setLoading(true)
+       // Update domain if domain field is provided
       if (values.domain) {
         const domain = await onUpdateDomain(id, values.domain)
         if (domain) {
@@ -112,8 +115,12 @@ import { useToast } from '../use-toast'
           })
         }
       }
+
+      // Upload an image if provided in form
       if (values.image[0]) {
+        // Upload the file
         const uploaded = await upload.uploadFile(values.image[0])
+        // Update image for chatbot
         const image = await onChatBotImageUpdate(id, uploaded.uuid)
         if (image) {
           toast({
@@ -123,6 +130,8 @@ import { useToast } from '../use-toast'
           setLoading(false)
         }
       }
+
+       // Update welcome message if provided
       if (values.welcomeMessage) {
         const message = await onUpdateWelcomeMessage(values.welcomeMessage, id)
         if (message) {
@@ -132,11 +141,13 @@ import { useToast } from '../use-toast'
           })
         }
       }
-      reset()
-      router.refresh()
-      setLoading(false)
+
+    reset()           // Reset form fields
+    router.refresh()  // Refresh the current page to show updated data
+    setLoading(false)
     })
 
+  // Function to handle deletion of a domain
     const onDeleteDomain = async () => {
       setDeleting(true)
       const deleted = await onDeleteUserDomain(id)
@@ -145,20 +156,24 @@ import { useToast } from '../use-toast'
           title: 'Success',
           description: deleted.message,
         })
-        setDeleting(false)
+        setDeleting(false) // Set deleting state to false
         router.refresh()
       }
     }
+    // Return all functions and states needed by the comp
     return {
       register,
       onUpdateSettings,
       errors,
       loading,
       onDeleteDomain,
-      deleting,
+      deleting,// Loading state for deletion
     }
   }
-  
+
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
   export const useHelpDesk = (id: string) => {
     const {
       register,

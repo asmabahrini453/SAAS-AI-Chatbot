@@ -107,7 +107,6 @@ export const onGetSubscriptionPlan = async () => {
     console.log(error)
   }
 }
-
 export const onGetAllAccountDomains = async () => {
   const user = await currentUser()
   if (!user) return
@@ -155,6 +154,7 @@ export const onUpdatePassword = async (password: string) => {
     console.log(error)
   }
 }
+// fetch the domain info
 
 export const onGetCurrentDomainInfo = async (domain: string) => {
   const user = await currentUser()
@@ -174,6 +174,8 @@ export const onGetCurrentDomainInfo = async (domain: string) => {
           where: {
             name: {
               contains: domain,
+              //filters the domains related to the user, searching for any domain
+              // where the name contains the specified domain string.
             },
           },
           select: {
@@ -200,6 +202,8 @@ export const onGetCurrentDomainInfo = async (domain: string) => {
     console.log(error)
   }
 }
+
+//update domain
 
 export const onUpdateDomain = async (id: string, name: string) => {
   try {
@@ -244,6 +248,8 @@ export const onUpdateDomain = async (id: string, name: string) => {
   }
 }
 
+ // Update image (icon) for chatbot
+
 export const onChatBotImageUpdate = async (id: string, icon: string) => {
   const user = await currentUser()
 
@@ -281,6 +287,7 @@ export const onChatBotImageUpdate = async (id: string, icon: string) => {
   }
 }
 
+//update welcome message
 export const onUpdateWelcomeMessage = async (
   message: string,
   domainId: string
@@ -309,6 +316,7 @@ export const onUpdateWelcomeMessage = async (
   }
 }
 
+//delete domain by userId
 export const onDeleteUserDomain = async (id: string) => {
   const user = await currentUser()
 

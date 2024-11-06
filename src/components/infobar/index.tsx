@@ -7,7 +7,7 @@ type Props = {}
 
 const InfoBar = (props: Props) => {
   return (
-    <div className="flex w-full justify-between items-center py-1 mb-8 ">
+    <div className="flex w-full justify-between items-center py-1 mb-8  ">
     <BreadCrumb />
     <div className="flex gap-3 items-center">
       <div>
@@ -17,11 +17,11 @@ const InfoBar = (props: Props) => {
         </Card>
       </div>
       <Avatar>
-        <AvatarFallback className="bg-orange text-white">
+        <AvatarFallback className="bg-orange text-white ">
           <Headphones />
         </AvatarFallback>
       </Avatar>
-      <Avatar>
+      <Avatar className="mr-3">
         <AvatarImage
           src="https://github.com/shadcn.png"
           alt="@shadcn"
