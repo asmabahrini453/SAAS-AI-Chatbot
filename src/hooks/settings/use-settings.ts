@@ -39,7 +39,8 @@ import { useToast } from '../use-toast'
   const upload = new UploadClient({
     publicKey: process.env.NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY as string,
   })
-  
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
   export const useThemeMode = () => {
     const { setTheme, theme } = useTheme() //from next theme
     return {
@@ -47,7 +48,9 @@ import { useToast } from '../use-toast'
       theme,
     }
   }
-  
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //hook to change password
   export const useChangePassword = () => {
     const {
       register,
@@ -82,6 +85,8 @@ import { useToast } from '../use-toast'
     }
   }
   
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
   export const useSettings = (id: string) => {
     const {
       register,
@@ -131,7 +136,7 @@ import { useToast } from '../use-toast'
       router.refresh()
       setLoading(false)
     })
-  
+
     const onDeleteDomain = async () => {
       setDeleting(true)
       const deleted = await onDeleteUserDomain(id)

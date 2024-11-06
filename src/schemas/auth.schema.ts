@@ -60,7 +60,7 @@ export const UserLoginSchema: ZodType<UserLoginProps> = z.object({
 
 
 
-
+//schema to change the password
 export type ChangePasswordProps = {
   password: string
   confirmPassword: string

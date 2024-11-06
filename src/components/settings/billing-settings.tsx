@@ -10,9 +10,9 @@ type Props = {}
 //fetch the user subscription plan
 const BillingSettings = async (props: Props) => {
     //fetch the details of the  plan of the user
-  const plan = await onGetSubscriptionPlan()
-  
-  
+  const plan = await onGetSubscriptionPlan() //fetch the plan name of the pricingcards (exp: STANDARD)
+  console.log(plan)
+  //fetch the features of the plan of the pricing Cards
   const planFeatures = pricingCards.find(
     (card) => card.title.toUpperCase() === plan?.toUpperCase()
   )?.features
@@ -29,6 +29,7 @@ const BillingSettings = async (props: Props) => {
           message="Add payment information, upgrade and modify your plan."
         />
       </div>
+     
       {/* <div className="lg:col-span-2 flex justify-start lg:justify-center ">
         <Modal
           title="Choose A Plan"
@@ -73,6 +74,7 @@ const BillingSettings = async (props: Props) => {
           ))}
         </div>
       </div> */}
+      
     </div>
   )
 }
