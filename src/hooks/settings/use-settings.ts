@@ -189,6 +189,8 @@ import { useToast } from '../use-toast'
     const [isQuestions, setIsQuestions] = useState<
       { id: string; question: string; answer: string }[]
     >([])
+
+    //submission handler
     const onSubmitQuestion = handleSubmit(async (values) => {
       setLoading(true)
       const question = await onCreateHelpDeskQuestion(
@@ -206,7 +208,7 @@ import { useToast } from '../use-toast'
         reset()
       }
     })
-  
+  //get all help questions
     const onGetQuestions = async () => {
       setLoading(true)
       const questions = await onGetAllHelpDeskQuestions(id)
@@ -228,6 +230,8 @@ import { useToast } from '../use-toast'
       loading,
     }
   }
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
   
   export const useFilterQuestions = (id: string) => {
     const {

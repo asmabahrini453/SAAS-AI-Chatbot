@@ -315,7 +315,7 @@ export const onUpdateWelcomeMessage = async (
     console.log(error)
   }
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 //delete domain by userId
 export const onDeleteUserDomain = async (id: string) => {
   const user = await currentUser()
@@ -357,6 +357,8 @@ export const onDeleteUserDomain = async (id: string) => {
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//create the help desk question 
 export const onCreateHelpDeskQuestion = async (
   id: string,
   question: string,
@@ -402,6 +404,7 @@ export const onCreateHelpDeskQuestion = async (
     console.log(error)
   }
 }
+//get help questions by the domain
 
 export const onGetAllHelpDeskQuestions = async (id: string) => {
   try {
@@ -425,6 +428,8 @@ export const onGetAllHelpDeskQuestions = async (id: string) => {
     console.log(error)
   }
 }
+
+//create filter questions by the domain
 
 export const onCreateFilterQuestions = async (id: string, question: string) => {
   try {
@@ -464,6 +469,7 @@ export const onCreateFilterQuestions = async (id: string, question: string) => {
     console.log(error)
   }
 }
+//get filter questions by the domain
 
 export const onGetAllFilterQuestions = async (id: string) => {
   try {
