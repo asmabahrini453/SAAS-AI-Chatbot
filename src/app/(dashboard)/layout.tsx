@@ -8,12 +8,10 @@ type Props = {
 }
 
 const OwnerLayout = async ({ children }: Props) => {
-    //fetch user' infos
   const authenticated = await onLoginUser()
   if (!authenticated) return null
 
   return (
-
     <ChatProvider>
       <div className="flex h-screen w-full">
         <SideBar domains={authenticated.domain} />

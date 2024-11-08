@@ -81,6 +81,7 @@ const Bubble = ({ message, createdAt }: Props) => {
           </div>
         ) : (
           <p className="text-sm">
+            {/* we wrappong the link in the chat room to look like a link */}
             {message.content.replace('(complete)', ' ')}
             {message.link && (
               <Link

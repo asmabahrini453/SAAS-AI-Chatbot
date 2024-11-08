@@ -15,8 +15,6 @@ const ConversationPage = async (props: Props) => {
   
 
     <div className="w-full h-full flex">
-          {/* <SideBar domains={domains?.domains}/> */}
-
       <ConversationMenu domains={domains?.domains} />
 
       <Separator orientation="vertical" />
