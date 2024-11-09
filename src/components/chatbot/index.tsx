@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { BotIcon } from '@/icons/bot-icon'
 import { useChatBot } from '@/hooks/chatbot/use-chatbot'
+import { BotWindow } from './window'
 
 type Props = {}
 
@@ -25,8 +26,7 @@ const AiChatBot = (props: Props) => {
 
   return (
     <div className="h-screen flex flex-col justify-end items-end gap-4">
-        <h1>AI CHATBOT ASMA ASouma</h1>
-      {/* {botOpened && (
+      {botOpened && (
         <BotWindow
           errors={errors}
           setChat={setOnChats}
@@ -50,7 +50,7 @@ const AiChatBot = (props: Props) => {
         )}
         onClick={onOpenChatBot}
       >
-        {currentBot?.chatBot?.icon ? (
+        {/* {currentBot?.chatBot?.icon ? (
           <Image
             src={`https://ucarecdn.com/${currentBot.chatBot.icon}/`}
             alt="bot"
@@ -58,8 +58,8 @@ const AiChatBot = (props: Props) => {
           />
         ) : (
           <BotIcon />
-        )}
-      </div> */}
+        )} */}
+      </div>
     </div>
   )
 }
