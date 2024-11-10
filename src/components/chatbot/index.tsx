@@ -50,7 +50,7 @@ const AiChatBot = (props: Props) => {
         )}
         onClick={onOpenChatBot}
       >
-        {/* {currentBot?.chatBot?.icon ? (
+        {currentBot?.chatBot?.icon ? (
           <Image
             src={`https://ucarecdn.com/${currentBot.chatBot.icon}/`}
             alt="bot"
@@ -58,7 +58,7 @@ const AiChatBot = (props: Props) => {
           />
         ) : (
           <BotIcon />
-        )} */}
+        )}
       </div>
     </div>
   )
