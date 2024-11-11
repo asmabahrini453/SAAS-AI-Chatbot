@@ -283,7 +283,8 @@ import { useToast } from '../use-toast'
       isQuestions,
     }
   }
-  
+  ////////////////////////////////////////////////////////////
+
   export const useProducts = (domainId: string) => {
     const { toast } = useToast()
     const [loading, setLoading] = useState<boolean>(false)
@@ -299,7 +300,9 @@ import { useToast } from '../use-toast'
     const onCreateNewProduct = handleSubmit(async (values) => {
       try {
         setLoading(true)
+        //uploading the product from the uploadcare 
         const uploaded = await upload.uploadFile(values.image[0])
+       //create it
         const product = await onCreateNewDomainProduct(
           domainId,
           values.name,

@@ -516,7 +516,8 @@ export const onGetPaymentConnected = async () => {
     console.log(error)
   }
 }
-
+/////////////////////////////////////////////////////::::
+//create a new product
 export const onCreateNewDomainProduct = async (
   id: string,
   name: string,

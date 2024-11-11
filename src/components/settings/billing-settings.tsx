@@ -5,6 +5,8 @@ import { pricingCards } from '@/constants/landing-page'
 import Image from 'next/image'
 import { onGetSubscriptionPlan } from '@/actions/settings'
 import Section from '../section-label'
+import Modal from '../modal'
+import SubscriptionForm from '../forms/settings/subscription-form'
 
 type Props = {}
 //fetch the user subscription plan
@@ -29,8 +31,8 @@ const BillingSettings = async (props: Props) => {
           message="Add payment information, upgrade and modify your plan."
         />
       </div>
-     
-      {/* <div className="lg:col-span-2 flex justify-start lg:justify-center ">
+      
+       <div className="lg:col-span-2 flex justify-start lg:justify-center ">
         <Modal
           title="Choose A Plan"
           description="Tell us about yourself! What do you do? Let’s tailor your experience so it best suits you."
@@ -73,7 +75,7 @@ const BillingSettings = async (props: Props) => {
             </div>
           ))}
         </div>
-      </div> */}
+      </div> 
       
     </div>
   )
